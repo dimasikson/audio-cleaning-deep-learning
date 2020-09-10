@@ -63,8 +63,8 @@ Below is a screenshot of the web app:
 ![](https://i.gyazo.com/7369a9176874d99eb8ce7319b1806cdd.png)
 
 ### The way to use it:
-###   - draw in the bordered rectangle below the charts to label the audio
-###   - click next to save
+  - draw in the bordered rectangle below the charts to label the audio
+  - click next to save
 
 # 4. Instructions to recreate
 
