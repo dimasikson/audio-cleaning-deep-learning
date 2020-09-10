@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="shortcut icon" href="">
+        <style>
+
+            *{
+                list-style: none;
+            }
+
+            body, html {
+                margin: 0;
+                color:black;
+                background-color: white;
+                font-family: sans-serif;
+            }
+ 
+            .content {
+                margin: 0 auto;
+                width: 600px;
+            }
+
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <!-- import libraries -->
+        <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <div class="content" id="mainContentDiv">
+
+            <!-- stuff goes here -->
+
+            <audio id="player" preload="none" ontimeupdate="audio_time_update()">
+                <source id="playerSrc" type="audio/wav">
+            </audio>
+            <audio id="playerPreview" preload="none">
+                <source id="playerSrcPreview" type="audio/wav">
+            </audio>
+
+            <h2>Audio Labeling App</h2>
+
+            <div id="searchPanel">
+                <span>
+                    Search by ID:
+                </span>            
+                <span>
+                    <input id="mainInput">
+                </span>
+                <button id="enter_button">
+                    Enter
+                </button>
+            </div>
+
+            <h3 id="currentID"></h3>
+
+            <div id="canvasPanel" style="margin-top: 10px; padding: 5px">
+                <canvas id="progress" width="580" height="5" style="border-radius: 2px; border: 1px solid;"></canvas>
+                <div id="audioChart" width="580" height="300" style="border-radius: 2px;"></div>
+            </div>
+
+            <div id="labelPanel" style="margin-top: 0px; padding: 5px">
+                <div id="labelChart" width="580" height="20" style="border-radius: 2px;"></div>
+            </div>
+
+            <div id="drawPanel" style="margin-top: 0px; padding: 5px" oncontextmenu="return false;">
+                <canvas id="drawing" width="580" height="30" style="border: 1px solid; border-radius: 2px;"></canvas>
+            </div>
+
+            <div id="controlPanel" style="margin-top: 10px; margin-bottom: 10px;">
+                <button id="play_pause_button">
+                    Play
+                </button>
+                <button id="preview_button" style="margin-right: 20px;">
+                    Preview edited
+                </button>
+                <button id="previous_button">
+                    Previous
+                </button>
+                <button id="next_button">
+                    Next
+                </button>
+            </div>
+
+        </div>
+
+        <script src='static/index.js'></script>
+
+	</body>
+</html>
+
