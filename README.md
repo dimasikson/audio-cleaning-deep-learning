@@ -2,7 +2,11 @@
 
 # 1. What is this project? Why is it useful?
 
-This project helps significantly speed up cleaning large amounts of audio, it uses deep learning to classify raw audio into sections to be removed vs kept. Primarily we remove sections in the audio that are:
+This project helps significantly speed up cleaning large amounts of audio, it uses deep learning to classify raw audio into sections to be removed vs kept. 
+
+### 40 minutes of raw audio took me 2 hours to clean. This model can do it in a few minutes, up to ~100 times faster.
+
+Primarily we remove sections in the audio that are:
   - silences
   - mic breathing
   - other miscellaneous sounds, e.g. mic touching, etc.
