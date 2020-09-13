@@ -2,9 +2,9 @@
 
 # 1. What is this project? Why is it useful?
 
-This project helps significantly speed up cleaning large amounts of audio, it uses deep learning to classify raw audio into sections to be removed vs kept. 
+#### This project helps significantly speed up cleaning large amounts of audio, it uses deep learning to classify raw audio into sections to be removed vs kept. 
 
-### 40 minutes of raw audio took me 2 hours to clean. This model can do it in a few minutes, up to ~100 times faster.
+#### 40 minutes of raw audio took me 2 hours to clean. This model can do it in a few minutes, up to ~100 times faster.
 
 Primarily we remove sections in the audio that are:
   - silences
@@ -12,6 +12,8 @@ Primarily we remove sections in the audio that are:
   - other miscellaneous sounds, e.g. mic touching, etc.
 
 ![alt text](https://i.gyazo.com/8ccd8f611b4a73b2a405c90c6c039e65.png)
+
+#### Charts 1.1 and 1.2. Example audio input and output array compared to labels.
 
 Primary use case was to pre-process podcast audio and other audio spoken content.
 
@@ -23,6 +25,8 @@ The larger model in terms of # of parameters performs at 99% recall and 92% prec
 
 ![alt text](https://i.gyazo.com/cc38e0b2e210bbd63355f5a38d2e1061.png)
 
+#### Chart 2.1. Performance tradeoff of 4 models I considered, from smallest to largest.
+
 Below are test samples:
   - original clip, 30 seconds: https://soundcloud.com/dmitri-ivanov-933106925/raw-test-podcast-editing-dl-1
   - manually edited 'correct' clip, 20 seconds: https://soundcloud.com/dmitri-ivanov-933106925/correct-test-podcast-editing-dl
@@ -31,6 +35,8 @@ Below are test samples:
 Note about the generated clip above: predictions are generated as probability between 0.0 and 1.0, and I have found that rounding the outputs above 0.15 to 1 results in the best listening experience. There is a trade-off between precision and recall illustrated below and I have found having higher recall much better than precision.
 
 ![alt text](https://i.gyazo.com/4ce067ba8bcd12046af6249e4957cec8.png)
+
+#### Chart 2.2. Performance tradeoff of changing the output rounding threshold.
 
 # 3. How it was done:
 ## 3.1 Data gathering
@@ -52,9 +58,13 @@ The model consists only of Convolutional 1D layers, below is the summary:
 
 ![alt text](https://i.gyazo.com/61faad7373e5f6e27ec3f94293414d47.png)
 
+#### Chart 3.1. Layers of the largest of 4 models considered in this project.
+
 Model construction roughly inspired by: https://attardi.org/pytorch-and-coreml/
 
 ![](https://attardi.org/static/af9a10acd36978e8a185d820c89a55d5/b06ae/diagram.png)
+
+#### Chart 3.2. Visualization of stacked Convolutional 1D layers, source: https://attardi.org/pytorch-and-coreml/
 
 ## 3.3 Data labeling web app
 
@@ -65,6 +75,8 @@ An alternative approach could be to edit the audio in an existing software and e
 Below is a screenshot of the web app:
 
 ![](https://i.gyazo.com/7369a9176874d99eb8ce7319b1806cdd.png)
+
+#### Chart 3.3. Example screenshot of the web app I built to label the data used in this project.
 
 ### The way to use it:
   - draw in the bordered rectangle below the charts to label the audio
